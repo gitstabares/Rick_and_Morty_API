@@ -20,6 +20,50 @@ function filtrarPorEspecie(personajes, especie) {
   }) : personajes;
 }
 
+function obtenerNombres(personajes) {
+  return personajes.map(function (personaje) {
+    return personaje.name;
+  });
+}
+
+function buscarPorNombre(personajes, nombre) {
+  return nombre ? personajes.find(function (personaje) {
+    return personaje.name === nombre;
+  }) : personajes;
+}
+
+function hayPersonajesMuertos(personajes) {
+  return personajes.some(function (personaje) {
+    return personaje.status === "Dead";
+  });
+}
+
+function todosVivos(personajes) {
+  return personajes.every(function (personaje) {
+    return personaje.status === "Alive";
+  });
+}
+
+function ordenarPorNombre(personajes) {
+  return [...personajes].sort(function (a, b) {
+    return a.name.localeCompare(b.name);
+  });
+}
+
+function primeros(personajes, cantidad) {
+  return cantidad ? personajes.slice(0,cantidad) : personajes;
+}
+
+function posicionDeNombre(nombres, nombre) {
+  return nombre ? nombres.indexOf(nombre) : nombres;
+}
+
+function contarVivos(personajes) {
+  return personajes.reduce(function (total, personaje) {
+    return personaje.status === "Alive" ? total+1 : total;
+  }, 0);
+}
+
 let personajes = [];
 
 function aplicarFiltros() {
