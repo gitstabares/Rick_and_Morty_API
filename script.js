@@ -3,18 +3,21 @@
 // etiqueta...) y no solo ids. Por ejemplo: document.querySelector("#filtro-nombre").
 
 async function obtenerPersonajes() {
-  // TODO: pide "https://rickandmortyapi.com/api/character" con fetch, conviértela
-  // a JSON y devuelve el array de personajes (repasa el ejercicio 1 de la práctica).
+  const respuesta = await fetch("https://rickandmortyapi.com/api/character");
+  const datos = await respuesta.json();
+  return datos.results;
 }
 
 function filtrarPorEstado(personajes, estado) {
-  // TODO: si estado viene vacío, devuelve personajes tal cual. Si no, filtra
-  // dejando solo los que coinciden (repasa el ejercicio 2 de la práctica).
+  return estado ? personajes.filter(function (personaje) {
+    return personaje.status.toLowerCase() === estado;
+  }) : personajes;
 }
 
 function filtrarPorEspecie(personajes, especie) {
-  // TODO: si especie viene vacía, devuelve personajes tal cual. Si no, filtra
-  // dejando solo los que coinciden (repasa el ejercicio 3 de la práctica).
+  return especie ? personajes.filter(function (personaje) {
+    return personaje.species === especie;
+  }) : personajes;
 }
 
 let personajes = [];
