@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <title>Buscador de personajes — Rick and Morty</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&amp;family=Outfit:wght@500;600;700&amp;display=swap" rel="stylesheet">
 </head>
 <body>
   <main class="app">
@@ -11,7 +12,7 @@
       <h1>Buscador de personajes</h1>
     </header>
 
-    <form class="filtros">
+    <form id="filtro" class="filtros">
       <input type="text" id="filtro-nombre" placeholder="Buscar por nombre..." />
       <select id="filtro-estado">
         <option value="">Todos los estados</option>
@@ -24,6 +25,12 @@
         <option value="Human">Humano</option>
         <option value="Alien">Alien</option>
       </select>
+      <button class="boton" type="reset">Limpiar Filtros</button>
+      <button id="boton-ordenar" class="boton" type="button">Ordenar A-Z</button>
+      <div>
+        <input id="checkbox" type="checkbox">
+        <label for="checkbox">Mostrar solo los 10 primeros</label>
+      </div>
     </form>
 
     <p id="contador"></p>

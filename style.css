@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   margin: 0;
   font-family: system-ui, sans-serif;
@@ -20,9 +16,11 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   margin: 16px 0;
+  align-items: stretch;
 }
 
 .filtros input,
+.filtros button,
 .filtros select {
   padding: 8px 12px;
   border-radius: 8px;
@@ -34,12 +32,22 @@ body {
 /* TODO: dale layout a .personajes-grid con CSS Grid o con Flexbox.
    Compara las dos versiones en "Grid vs Flex" antes de decidir cuál usar aquí. */
 .personajes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .personaje-card {
   background: #172033;
   border-radius: 12px;
+  border: 1px solid #333;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.personaje-card:hover {
+  transform: translateY(-5px); 
+  border-color: greenyellow;
 }
 
 .personaje-card img {
@@ -50,4 +58,19 @@ body {
 .personaje-card h3,
 .personaje-card p {
   margin: 8px 12px;
+}
+
+.boton {
+  transition: all 0.3s ease;
+}
+
+.boton:hover {
+  transform: scale(1.05);
+  border-color: greenyellow;
+  color: greenyellow;
+}
+
+.boton:active {
+  border-color: green;
+  color: green;
 }
